@@ -19,11 +19,10 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- task: AzureCLI@2
+- task: AzureResourceManagerTemplateDeployment@3
   inputs:
-    azureSubscription: 'Azure for Students(4152d77a-784e-4df1-bd82-0e04268e7073)'
-    scriptType: 'pscore'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'az deployment sub create --location eastus2 --template-file $(System.DefaultWorkingDirectory)/myfirstpipeline/myarm.bicep'
-
-
+    connectedServiceName: 'Azure for Students(4152d77a-784e-4df1-bd82-0e04268e7073)'
+    location: 'eastus2'
+    resourceGroupName: 'resourceGroupName'
+    csmFile: biceptemp.bicep
+    

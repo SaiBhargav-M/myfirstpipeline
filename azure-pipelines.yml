@@ -24,6 +24,6 @@ steps:
     azureSubscription: 'Azure for Students(4152d77a-784e-4df1-bd82-0e04268e7073)'
     scriptType: 'batch'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az deployment sub create --location eastus2 --template-file myarm.bicep'
+    inlineScript: 'az deployment sub create --location eastus2 --template-file $(Build.SourcesDirectory)/myarm.bicep'
 
 

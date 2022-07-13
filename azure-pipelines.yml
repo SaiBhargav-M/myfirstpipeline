@@ -9,6 +9,11 @@ pr: none
 pool:
   vmImage: ubuntu-latest
 
+parameters:
+ - name: 'resourceGroupName'
+  displayName: "Name of the resourcegroup"
+  type: string
+  default: "rg"
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'

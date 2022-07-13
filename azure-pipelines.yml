@@ -10,10 +10,11 @@ pool:
   vmImage: ubuntu-latest
 
 parameters:
- - name: 'resourceGroupName'
-  displayName: "Name of the resourcegroup"
-  type: string
-  default: "rg"
+  - name: 'resourceGroupName'
+    displayName: "Name of the resourcegroup"
+    type: string
+    default: "rg"
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
@@ -23,10 +24,6 @@ steps:
     azureSubscription: 'Azure for Students(4152d77a-784e-4df1-bd82-0e04268e7073)'
     scriptType: 'batch'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az deployment sub create --location eastus2 --template-file myarm.bicep
+    inlineScript: 'az deployment sub create --location eastus2 --template-file myarm.bicep'
 
 
-# - script: |
-#     echo Add other tasks to build, test, and deploy your project.
-#     echo See https://aka.ms/yaml
-#   displayName: 'Run a multi-line script'

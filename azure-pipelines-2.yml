@@ -10,6 +10,19 @@ pr: none # Disable pr.
 pool:
   vmImage: ubuntu-latest
 
+parameters:
+  - name: 'resourceGroupName'
+    displayName: "Name of the resourcegroup"
+    type: string
+    default: "rg"
+  - name: 'location'
+    displayName: "Name of the location"
+    type: string
+    values:
+      - eastus2
+      - centralus
+    default: "eastus2"
+
 stages:
 - stage: Build
   displayName: destroy rg6

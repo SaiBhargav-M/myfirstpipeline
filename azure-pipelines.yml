@@ -3,8 +3,8 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- main
+trigger: none
+pr: none
 
 pool:
   vmImage: ubuntu-latest
@@ -12,6 +12,13 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Azure for Students(4152d77a-784e-4df1-bd82-0e04268e7073)'
+    scriptType: 'batch'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az deployment sub create --location eastus2 --template-file https://raw.githubusercontent.com/SaiBhargav-M/myfirstpipeline/parabranch/myarm.bicep'
 
 
 # - script: |

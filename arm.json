@@ -1,15 +1,30 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {},
+    "parameters": {
+        "resourceGroupName": {
+            "type": "string",
+            "defaultValue": "rg4",
+            "metadata": {
+                "description": "Please enter the resource group name"
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "eastus2",
+            "metadata": {
+                "description": "enter the location"
+            }
+        }
+    },
     "functions": [],
     "variables": {},
     "resources": [
         {
-            "name": "rg4",
+            "name": "[parameters('resourceGroupName')]",
             "type": "Microsoft.Resources/resourceGroups",
             "apiVersion": "2021-04-01",
-            "location": "eastus2",
+            "location": "[parameters('location')]",
             "dependsOn": [],
             "tags": {}
         },
@@ -17,7 +32,7 @@
             "name": "rg5",
             "type": "Microsoft.Resources/resourceGroups",
             "apiVersion": "2021-04-01",
-            "location": "eastus",
+            "location": "[parameters('location')]",
             "dependsOn": [],
             "tags": {}
         },
@@ -25,7 +40,7 @@
             "name": "rg6",
             "type": "Microsoft.Resources/resourceGroups",
             "apiVersion": "2021-04-01",
-            "location": "eastus",
+            "location": "[parameters('location')]",
             "dependsOn": [],
             "tags": {}
         }
